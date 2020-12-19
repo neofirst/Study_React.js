@@ -1,0 +1,82 @@
+$blue: blue;
+$gray: gray;
+$pink: pink;
+
+@mixin button-color($color) {
+  background-color: $color;
+
+  &:hover {
+    background-color: lighten($color, 10%);
+  }
+
+  &:active {
+    background-color: darken($color, 10%);
+  }
+
+  &.outline{
+    color:$color;
+    background: none;
+    border: 1px solid $color;
+    &:hover{
+      background-color: $color;
+      color:white;
+    }
+  }
+}
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  border-radius: 4px;
+  border: node;
+  cursor: pointer;
+
+  padding-left: 0.875rem;
+  padding-right: 1rem;
+
+  &.small {
+    height: 1.75rem;
+    font-size: 1rem;
+  }
+
+  &.medium {
+    height: 2.25rem;
+    font-size: 1rem;
+  }
+
+  &.large {
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+
+  &.blue {
+    @include button-color($blue)
+  }
+
+  &.gray {
+    @include button-color($gray)
+  }
+
+  &.pink {
+    @include button-color($pink)
+  }
+
+  //버튼 여백
+  &+& {
+    margin-left: 1rem;
+  }
+  
+
+  &.fullWidth{
+    width: 100%; 
+    //flex를 사용 할 때만 가능
+    justify-content: center;
+    & + &{
+      margin-left: 0;
+      margin-top:1rem;
+    }
+  }
+}
