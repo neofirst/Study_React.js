@@ -1,0 +1,21 @@
+
+  background: ${props => props.theme.pallete.blue};
+  &:hover{
+    background: ${props =>lighten(0.1, props.theme.pallete.blue)};
+  }
+  &:active{
+    background: ${props =>darken(0.1, props.theme.pallete.gray)};
+  } */
+
+    ${props=>{
+    const selectedColor = props.theme.pallete[props.color];
+    return css `
+      background-color: ${color};
+    &:hover{
+    background: ${props =>lighten(0.1, selectedColor)};
+    }
+    &:active{
+      background: ${props =>darken(0.1, selectedColor)};
+    }
+    `
+  }}

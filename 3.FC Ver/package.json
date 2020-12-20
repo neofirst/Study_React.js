@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "classnames": "^2.2.6",
-    "react-icons": "^4.1.0"
+    "polished": "^4.0.5"
   }
 }
